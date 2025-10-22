@@ -10,11 +10,11 @@ namespace TestPruebasUnitariasApp
     {
         public static long CalcularFactorial(int n)
         {
-            if (n < 0) return -1; if (n == 0) return 1;
+            if (n < 0) return -1;
 
-            long res = 1;
-            for (int i = 1; i <= n; i++) res *= i;
-            return res;
+            if (n == 0) return 1;
+
+            return Enumerable.Range(1, n).Aggregate(1L, (acc, v) => acc * v);
         }
     }
 }
